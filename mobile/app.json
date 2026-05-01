@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "MediCare Plus",
+    "slug": "medicare-plus",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.medicareplus.app"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medicareplus.app"
+    },
+    "plugins": [
+      "expo-secure-store"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "56aec434-b301-4793-9a33-ad2ee97c2fce"
+      }
+    }
+  }
+}
