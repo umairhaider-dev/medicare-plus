@@ -11,7 +11,7 @@
 [![Railway](https://img.shields.io/badge/Deployed_on-Railway-0B0D0E?style=for-the-badge&logo=railway)](https://railway.app)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-> A full-stack mobile application for managing clinic operations — patients, appointments, pharmacy inventory, and POS sales — all in one place.
+> A full-stack mobile application for managing clinic operations / patients, appointments, pharmacy inventory, and POS sales / all in one place.
 
 </div>
 
@@ -36,14 +36,14 @@
 ## Features
 
 ### 🏥 Dashboard
-- Live clinic stats — total patients, today's appointments, revenue, low stock alerts
+- Live clinic stats: total patients, today's appointments, revenue, low stock alerts
 - Today's appointment schedule at a glance
 - Quick action shortcuts to all core modules
-- Monthly summary — appointments, new patients, revenue
+- Monthly summary: appointments, new patients, revenue
 - Pull-to-refresh for real-time updates
 
 ### 👥 Patient Management
-- Register patients with full profile — name, MR number, DOB, gender, blood group, address
+- Register patients with full profile: name, MR number, DOB, gender, blood group, address
 - Search by name, MR number, or phone
 - Patient detail view with appointment history and prescriptions
 - Edit patient records and book appointments directly from profile
@@ -52,12 +52,12 @@
 ### 📅 Appointments
 - Book appointments with doctor, date, time slot, visit type (OPD / Follow-up / Emergency)
 - Today's view vs full schedule toggle
-- Status filter — All / Waiting / In Room / Scheduled / Completed
+- Status filter: All / Waiting / In Room / Scheduled / Completed
 - One-tap status updates: Waiting → In Room → Completed
 - Cancel appointments with confirmation
 
 ### 💊 Pharmacy Inventory
-- Full CRUD — add, edit, delete medicines
+- Full CRUD: add, edit, delete medicines
 - Category and unit classification (Tablet, Syrup, Injection, Capsule, etc.)
 - Track purchase price, sale price, quantity, and reorder level
 - Expiry date tracking with visual warnings
@@ -70,14 +70,14 @@
 - Quantity controls with stock limit enforcement
 - Optional patient linking
 - Discount entry
-- Payment mode selection — Cash / Card / Bank Transfer / Credit
+- Payment mode selection: Cash / Card / Bank Transfer / Credit
 - Sale summary with subtotal, discount, and total
 
 ### 📊 Reports & Analytics
-- Patient stats — total, new this month, new today
-- Appointment stats — today, this month, completed, cancelled
-- Revenue tracking — today, this month, total
-- Pharmacy stats — low stock count, expiring count
+- Patient stats: total, new this month, new today
+- Appointment stats: today, this month, completed, cancelled
+- Revenue tracking: today, this month, total
+- Pharmacy stats: low stock count, expiring count
 
 ---
 
