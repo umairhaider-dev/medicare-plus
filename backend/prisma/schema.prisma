@@ -1,0 +1,364 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Clinic {
+  id        String   @id @default(cuid())
+  name      String
+  address   String?
+  phone     String?
+  licenseNo String?
+  logoUrl   String?
+  createdAt DateTime @default(now())
+
+  users      User[]
+  patients   Patient[]
+  appointments Appointment[]
+  medicines  Medicine[]
+  sales      Sale[]
+  labOrders  LabOrder[]
+  purchases  PurchaseOrder[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  clinicId     String
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(RECEPTIONIST)
+  phone        String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  clinic        Clinic         @relation(fields: [clinicId], references: [id])
+  doctor        Doctor?
+  appointments  Appointment[]
+  prescriptions Prescription[]
+  sales         Sale[]
+}
+
+enum Role {
+  ADMIN
+  DOCTOR
+  PHARMACIST
+  RECEPTIONIST
+}
+
+model Doctor {
+  id             String  @id @default(cuid())
+  userId         String  @unique
+  specialization String?
+  qualification  String?
+  fee            Float   @default(0)
+  signatureUrl   String?
+
+  user          User           @relation(fields: [userId], references: [id])
+  appointments  Appointment[]
+  prescriptions Prescription[]
+}
+
+model Patient {
+  id               String    @id @default(cuid())
+  clinicId         String
+  patientCode      String
+  firstName        String
+  lastName         String
+  phone            String?
+  cnic             String?
+  age              Int?
+  dob              DateTime?
+  gender           Gender
+  address          String?
+  bloodGroup       String?
+  allergies        String?
+  emergencyContact String?
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+
+  clinic        Clinic         @relation(fields: [clinicId], references: [id])
+  appointments  Appointment[]
+  prescriptions Prescription[]
+  labOrders     LabOrder[]
+  documents     Document[]
+  vitals        Vital[]
+  sales         Sale[]
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+model Vital {
+  id         String   @id @default(cuid())
+  patientId  String
+  bp         String?
+  pulse      Int?
+  temp       Float?
+  weight     Float?
+  height     Float?
+  spo2       Int?
+  sugar      Float?
+  notes      String?
+  recordedAt DateTime @default(now())
+
+  patient Patient @relation(fields: [patientId], references: [id])
+}
+
+model Appointment {
+  id             String            @id @default(cuid())
+  clinicId       String
+  patientId      String
+  doctorId       String
+  userId         String
+  date           DateTime
+  time           String
+  visitType      VisitType         @default(OPD)
+  status         AppointmentStatus @default(SCHEDULED)
+  chiefComplaint String?
+  fee            Float             @default(0)
+  isPaid         Boolean           @default(false)
+  notes          String?
+  createdAt      DateTime          @default(now())
+
+  clinic       Clinic        @relation(fields: [clinicId], references: [id])
+  patient      Patient       @relation(fields: [patientId], references: [id])
+  doctor       Doctor        @relation(fields: [doctorId], references: [id])
+  user         User          @relation(fields: [userId], references: [id])
+  prescription Prescription?
+}
+
+enum VisitType {
+  OPD
+  FOLLOWUP
+  EMERGENCY
+  LAB_ONLY
+  PROCEDURE
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  WAITING
+  IN_ROOM
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model Prescription {
+  id            String    @id @default(cuid())
+  patientId     String
+  doctorId      String
+  userId        String
+  appointmentId String?   @unique
+  diagnosis     String?
+  notes         String?
+  followUpDate  DateTime?
+  signatureUrl  String?
+  pdfUrl        String?
+  createdAt     DateTime  @default(now())
+
+  patient     Patient            @relation(fields: [patientId], references: [id])
+  doctor      Doctor             @relation(fields: [doctorId], references: [id])
+  user        User               @relation(fields: [userId], references: [id])
+  appointment Appointment?       @relation(fields: [appointmentId], references: [id])
+  items       PrescriptionItem[]
+}
+
+model PrescriptionItem {
+  id             String  @id @default(cuid())
+  prescriptionId String
+  medicineName   String
+  dosage         String?
+  frequency      String?
+  duration       String?
+  instructions   String?
+
+  prescription Prescription @relation(fields: [prescriptionId], references: [id])
+}
+
+model LabOrder {
+  id        String    @id @default(cuid())
+  clinicId  String
+  patientId String
+  orderedBy String
+  status    LabStatus @default(PENDING)
+  notes     String?
+  totalFee  Float     @default(0)
+  createdAt DateTime  @default(now())
+
+  clinic  Clinic    @relation(fields: [clinicId], references: [id])
+  patient Patient   @relation(fields: [patientId], references: [id])
+  tests   LabTest[]
+}
+
+model LabTest {
+  id          String    @id @default(cuid())
+  labOrderId  String
+  testName    String
+  testCode    String?
+  fee         Float     @default(0)
+  result      String?
+  unit        String?
+  normalRange String?
+  status      LabStatus @default(PENDING)
+  resultAt    DateTime?
+
+  labOrder LabOrder @relation(fields: [labOrderId], references: [id])
+}
+
+enum LabStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  CANCELLED
+}
+
+model Medicine {
+  id            String    @id @default(cuid())
+  clinicId      String
+  name          String
+  genericName   String?
+  category      String?
+  form          String?
+  strength      String?
+  manufacturer  String?
+  batchNo       String?
+  expiryDate    DateTime?
+  purchasePrice Float     @default(0)
+  salePrice     Float     @default(0)
+  stock         Int       @default(0)
+  minStock      Int       @default(10)
+  location      String?
+  createdAt     DateTime  @default(now())
+
+  clinic        Clinic          @relation(fields: [clinicId], references: [id])
+  saleItems     SaleItem[]
+  purchaseItems PurchaseItem[]
+}
+
+model Sale {
+  id          String      @id @default(cuid())
+  clinicId    String
+  patientId   String?
+  userId      String
+  invoiceNo   String
+  subtotal    Float
+  discount    Float       @default(0)
+  total       Float
+  paymentMode PaymentMode @default(CASH)
+  isPaid      Boolean     @default(true)
+  notes       String?
+  createdAt   DateTime    @default(now())
+
+  clinic  Clinic     @relation(fields: [clinicId], references: [id])
+  patient Patient?   @relation(fields: [patientId], references: [id])
+  user    User       @relation(fields: [userId], references: [id])
+  items   SaleItem[]
+}
+
+model SaleItem {
+  id         String @id @default(cuid())
+  saleId     String
+  medicineId String
+  qty        Int
+  price      Float
+  total      Float
+
+  sale     Sale     @relation(fields: [saleId], references: [id])
+  medicine Medicine @relation(fields: [medicineId], references: [id])
+}
+
+enum PaymentMode {
+  CASH
+  CARD
+  BANK_TRANSFER
+  CREDIT
+}
+
+model PurchaseOrder {
+  id          String         @id @default(cuid())
+  clinicId    String
+  supplier    String
+  invoiceNo   String?
+  totalAmount Float          @default(0)
+  status      PurchaseStatus @default(PENDING)
+  notes       String?
+  createdAt   DateTime       @default(now())
+
+  clinic Clinic         @relation(fields: [clinicId], references: [id])
+  items  PurchaseItem[]
+}
+
+model PurchaseItem {
+  id              String @id @default(cuid())
+  purchaseOrderId String
+  medicineId      String
+  qty             Int
+  purchasePrice   Float
+  total           Float
+
+  purchaseOrder PurchaseOrder @relation(fields: [purchaseOrderId], references: [id])
+  medicine      Medicine      @relation(fields: [medicineId], references: [id])
+}
+
+enum PurchaseStatus {
+  PENDING
+  RECEIVED
+  PARTIAL
+  CANCELLED
+}
+
+model Document {
+  id         String       @id @default(cuid())
+  patientId  String
+  title      String
+  type       DocumentType
+  fileUrl    String
+  fileSize   Int?
+  notes      String?
+  uploadedAt DateTime     @default(now())
+
+  patient Patient @relation(fields: [patientId], references: [id])
+}
+
+enum DocumentType {
+  XRAY
+  LAB_REPORT
+  PRESCRIPTION
+  DISCHARGE
+  CONSENT
+  OTHER
+}
+
+model Reminder {
+  id          String          @id @default(cuid())
+  patientId   String
+  type        ReminderType
+  channel     ReminderChannel
+  message     String
+  scheduledAt DateTime
+  sentAt      DateTime?
+  status      String          @default("PENDING")
+  createdAt   DateTime        @default(now())
+}
+
+enum ReminderType {
+  APPOINTMENT
+  MEDICATION
+  FOLLOWUP
+  LAB_RESULT
+}
+
+enum ReminderChannel {
+  SMS
+  WHATSAPP
+  BOTH
+}
