@@ -210,8 +210,6 @@ medicare-plus/
 
 ---
 
-## Getting Started
-
 ### Prerequisites
 
 - **Node.js** 18 or later
@@ -220,87 +218,8 @@ medicare-plus/
 
 ---
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/umairhaider-dev/medicare-plus.git
-cd medicare-plus
-```
-
----
-
-### 2. Set Up the Backend
-
-```bash
-cd backend
-npm install
-```
-
-Create a `.env` file in the `backend/` directory:
-
-```env
-DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/medicare_db"
-JWT_SECRET="your-strong-secret-key-here"
-JWT_EXPIRES_IN="30d"
-PORT=5000
-NODE_ENV="development"
-```
-
-Initialize the database and start the API server:
-
-```bash
-npx prisma db push        # Create all tables from schema
-npx prisma generate       # Generate the Prisma client
-npm run dev               # Start with nodemon (hot reload)
-```
-
-The API runs at `http://localhost:5000`
-Health check: `http://localhost:5000/health`
-
----
-
-### 3. Set Up the Desktop App
-
-```bash
-cd desktop
-npm install
-```
-
-The desktop app connects to the backend at `http://localhost:5000` by default. If your backend is running on a different host or port, update `src/api/axios.js`:
-
-```js
-const instance = axios.create({
-  baseURL: 'http://YOUR_HOST:YOUR_PORT/api',
-})
-```
-
-**Run in browser (dev mode, no Electron):**
-
-```bash
-npx vite
-```
-
-Open `http://localhost:5173` — everything works in the browser.
-
-**Run as native Electron desktop app:**
-
-```bash
-npm run dev
-```
-
-This starts Vite and Electron together. The window opens automatically.
-
-**Build a distributable:**
-
-```bash
-npm run build          # Build the web assets
-npm run electron:build # Package as .exe / .dmg / .AppImage
-```
-
----
-
 ### Demo Login
-
+https://medicare-plus-six.vercel.app/login
 Once the app is running, use the built-in demo credentials:
 
 | Field | Value |
