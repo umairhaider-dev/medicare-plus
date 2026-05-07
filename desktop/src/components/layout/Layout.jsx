@@ -7,8 +7,11 @@ export default function Layout() {
     <div className="flex h-screen bg-gradient-main overflow-hidden">
       <Sidebar />
       <div className="flex flex-col flex-1 min-w-0">
-        <TopBar />
-        <main className="flex-1 overflow-hidden">
+        {/* z-index 40 ensures TopBar dropdowns float above main content */}
+        <div style={{ position: 'relative', zIndex: 40, flexShrink: 0 }}>
+          <TopBar />
+        </div>
+        <main className="flex-1 overflow-hidden" style={{ position: 'relative', zIndex: 0 }}>
           <Outlet />
         </main>
       </div>

@@ -193,11 +193,14 @@ export default function SettingsScreen() {
             </motion.div>
           )}
 
-          {!['hospital','security'].includes(active) && (
+          {!['language','hospital','security'].includes(active) && (
             <motion.div initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} className="flex flex-col items-center justify-center h-64 gap-3">
               <Settings size={40} style={{color:'var(--text-muted)'}} />
-              <p className="text-sm" style={{color:'var(--text-muted)'}}>
-                {SECTIONS.find(s=>s.id===active)?.label} configuration coming soon
+              <p className="text-sm font-600" style={{color:'var(--text-primary)'}}>
+                {SECTIONS.find(s=>s.id===active)?.label}
+              </p>
+              <p className="text-xs" style={{color:'var(--text-muted)'}}>
+                This module is currently being configured. Contact your system administrator.
               </p>
             </motion.div>
           )}

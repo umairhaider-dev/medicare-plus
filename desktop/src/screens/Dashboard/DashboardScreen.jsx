@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell,
@@ -152,20 +153,21 @@ function Counter({ to, duration = 1.5 }) {
 
 export default function DashboardScreen() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [tick, setTick] = useState(0)
 
   useEffect(() => {
-    const t = setInterval(() => setTick(t => t + 1), 30000)
-    return () => clearInterval(t)
+    const timer = setInterval(() => setTick(v => v + 1), 30000)
+    return () => clearInterval(timer)
   }, [])
 
   const METRICS = [
-    { label: 'Patients Today',   value: <Counter to={312} />,   unit: '',       icon: Users,       variant: 'blue',   trend: 8,  subtitle: '47 waiting in ED' },
-    { label: 'Beds Occupied',    value: <Counter to={87} />,    unit: '/ 120',  icon: BedDouble,   variant: 'gold',   trend: -2, subtitle: '33 available now' },
-    { label: 'Emergency Cases',  value: <Counter to={34} />,    unit: '',       icon: AlertTriangle,variant: 'red',  trend: 15, subtitle: '7 critical severity' },
-    { label: "Today's Revenue",  value: 'AED 842K',             unit: '',       icon: DollarSign,  variant: 'green',  trend: 12, subtitle: 'Target: AED 900K' },
-    { label: 'Surgeries Today',  value: <Counter to={12} />,    unit: '',       icon: Activity,    variant: 'purple', trend: 0,  subtitle: '5 in progress' },
-    { label: 'Lab Tests Pending',value: <Counter to={89} />,    unit: '',       icon: FlaskConical,variant: 'teal',   trend: -5, subtitle: '12 critical values' },
+    { label: t('dashboard.metric_patients'),  value: <Counter to={312} />, unit: '',      icon: Users,        variant: 'blue',   trend: 8,  subtitle: `47 ${t('dashboard.sub_waiting_ed')}` },
+    { label: t('dashboard.metric_beds'),      value: <Counter to={87} />,  unit: '/ 120', icon: BedDouble,    variant: 'gold',   trend: -2, subtitle: `33 ${t('dashboard.sub_available')}` },
+    { label: t('dashboard.metric_emergency'), value: <Counter to={34} />,  unit: '',      icon: AlertTriangle,variant: 'red',    trend: 15, subtitle: `7 ${t('dashboard.sub_critical_sev')}` },
+    { label: t('dashboard.metric_revenue'),   value: 'AED 842K',           unit: '',      icon: DollarSign,   variant: 'green',  trend: 12, subtitle: `${t('dashboard.sub_target')}: AED 900K` },
+    { label: t('dashboard.metric_surgeries'), value: <Counter to={12} />,  unit: '',      icon: Activity,     variant: 'purple', trend: 0,  subtitle: `5 ${t('dashboard.sub_in_progress')}` },
+    { label: t('dashboard.metric_lab'),       value: <Counter to={89} />,  unit: '',      icon: FlaskConical, variant: 'teal',   trend: -5, subtitle: `12 ${t('dashboard.sub_critical_val')}` },
   ]
 
   return (
@@ -185,10 +187,10 @@ export default function DashboardScreen() {
             >
               <BarChart2 size={15} style={{ color: '#38bdf8' }} />
             </div>
-            Command Center
+            {t('dashboard.title')}
           </h1>
           <p className="page-subtitle">
-            {format(new Date(), "EEEE, dd MMMM yyyy")} · Real-time hospital operations overview
+            {format(new Date(), "EEEE, dd MMMM yyyy")} · {t('dashboard.subtitle')}
           </p>
         </div>
 
@@ -196,7 +198,7 @@ export default function DashboardScreen() {
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-500"
             style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', color: '#34d399' }}>
             <span className="pulse-dot" style={{ background: '#10b981', color: '#10b981' }} />
-            Live · {format(new Date(), 'HH:mm')}
+            {t('dashboard.live')} · {format(new Date(), 'HH:mm')}
           </div>
         </div>
       </motion.div>
@@ -215,10 +217,10 @@ export default function DashboardScreen() {
         <GlassCard className="col-span-5" animate delay={0.2} padding={false}>
           <div className="p-4 pb-0 flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Patient Flow — 24h</h3>
-              <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>Admissions · Discharges · ED visits</p>
+              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.patient_flow')}</h3>
+              <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{t('dashboard.patient_flow_sub')}</p>
             </div>
-            <Badge variant="blue" dot>Live</Badge>
+            <Badge variant="blue" dot>{t('dashboard.live')}</Badge>
           </div>
           <ResponsiveContainer width="100%" height={180}>
             <AreaChart data={PATIENT_FLOW} margin={{ top: 16, right: 16, left: -20, bottom: 0 }}>
@@ -248,7 +250,7 @@ export default function DashboardScreen() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Zap size={15} style={{ color: '#ef4444' }} />
-              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Critical Alerts</h3>
+              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.critical_alerts')}</h3>
             </div>
             <span className="badge badge-red">{CRITICAL_ALERTS.filter(a=>a.type==='critical').length} critical</span>
           </div>
@@ -281,8 +283,8 @@ export default function DashboardScreen() {
         {/* Revenue Chart */}
         <GlassCard className="col-span-3" animate delay={0.3} padding={false}>
           <div className="p-4 pb-0">
-            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Revenue Trend</h3>
-            <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>vs Target (AED Million)</p>
+            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.revenue_trend')}</h3>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{t('dashboard.revenue_sub')}</p>
           </div>
           <ResponsiveContainer width="100%" height={185}>
             <BarChart data={REVENUE_TREND} margin={{ top: 16, right: 12, left: -24, bottom: 0 }} barGap={3}>
@@ -301,7 +303,7 @@ export default function DashboardScreen() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <BedDouble size={15} style={{ color: '#0ea5e9' }} />
-              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Hospital Census Map</h3>
+              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.hospital_census')}</h3>
             </div>
             <div className="text-xs font-600" style={{ color: 'var(--text-muted)' }}>
               87 / 120 occupied
@@ -329,7 +331,7 @@ export default function DashboardScreen() {
         <GlassCard className="col-span-3" animate delay={0.4}>
           <div className="flex items-center gap-2 mb-4">
             <Activity size={15} style={{ color: '#8b5cf6' }} />
-            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Dept. Workload</h3>
+            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.dept_workload')}</h3>
           </div>
           <div className="space-y-3">
             {DEPT_LOAD.map(d => (
@@ -357,7 +359,7 @@ export default function DashboardScreen() {
         {/* Case Mix Pie */}
         <GlassCard className="col-span-2" animate delay={0.42} padding={false}>
           <div className="p-4 pb-0">
-            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>Case Mix</h3>
+            <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.case_mix')}</h3>
           </div>
           <ResponsiveContainer width="100%" height={120}>
             <PieChart>
@@ -385,7 +387,7 @@ export default function DashboardScreen() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Stethoscope size={15} style={{ color: '#f59e0b' }} />
-              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>OR Schedule Today</h3>
+              <h3 className="text-sm font-700" style={{ color: 'var(--text-primary)' }}>{t('dashboard.or_schedule')}</h3>
             </div>
             <button className="text-[11px] text-sky-400 flex items-center gap-0.5" onClick={() => navigate('/surgery')}>
               All <ChevronRight size={11} />

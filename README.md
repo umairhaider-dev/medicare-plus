@@ -1,17 +1,19 @@
 <div align="center">
 
-<img src="mobile/assets/icon.png" alt="MediCare Plus Logo" width="120" height="120" />
+<img src="APP LOGO.png" alt="MediCare Pro" width="110" height="110" />
 
-# MediCare Plus
-### Complete Clinic & Pharmacy Management System
+# MediCare Pro — Enterprise Hospital Management System
 
-[![React Native](https://img.shields.io/badge/React_Native-Expo_SDK_54-20232A?style=for-the-badge&logo=react)](https://expo.dev)
-[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs)](https://nodejs.org)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Prisma_ORM-336791?style=for-the-badge&logo=postgresql)](https://www.postgresql.org)
-[![Railway](https://img.shields.io/badge/Deployed_on-Railway-0B0D0E?style=for-the-badge&logo=railway)](https://railway.app)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+**Next-generation clinical command center built for large-scale hospital operations**
 
-> A full-stack mobile application for managing clinic operations / patients, appointments, pharmacy inventory, and POS sales / all in one place.
+[![Electron](https://img.shields.io/badge/Electron-28-47848F?style=for-the-badge&logo=electron&logoColor=white)](https://www.electronjs.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Prisma-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org)
+[![i18n](https://img.shields.io/badge/Bilingual-Arabic%20%2B%20English-0ea5e9?style=for-the-badge)](https://www.i18next.com)
+
+> A complete, production, ready hospital information system, covering every department from emergency triage and ICU monitoring to pharmacy dispensing, billing, staff management, and real-time analytics. Built for a 1,200-bed tertiary care hospital, with full Arabic/English bilingual support and native RTL layout.
 
 </div>
 
@@ -21,88 +23,106 @@
 
 <div align="center">
 
-| Dashboard | Patients | Appointments |
-|:---------:|:--------:|:------------:|
-| <img src="screenshots/dashboard.jpg" width="220"/> | <img src="screenshots/patients.jpg" width="220"/> | <img src="screenshots/appointments.jpg" width="220"/> |
+### Secure Sign-In Portal
+<img src="screenshots/desktop-login.jpg" width="900" alt="MediCare Pro Login Screen" />
 
-| Pharmacy Inventory | Reports |
-|:---------:|:-------:|
-| <img src="screenshots/pharmacy.jpg" width="220"/> | <img src="screenshots/reports.jpg" width="220"/> |
+*Animated particle canvas, live ECG decoration, hospital statistics, and JCI/ISO certification badges — all on the login page.*
+
+---
+
+### Command Center Dashboard — English
+<img src="screenshots/desktop-dashboard.jpg" width="900" alt="MediCare Pro Dashboard English" />
+
+*Real-time hospital operations overview: 6 live metric cards, patient flow chart, critical alerts feed, revenue trend, bed census map, department workload, OR schedule, and quick-action shortcuts.*
+
+---
+
+### Command Center Dashboard — العربية (Arabic RTL)
+<img src="screenshots/desktop-dashboard-ar.jpg" width="900" alt="MediCare Pro Dashboard Arabic RTL" />
+
+*One-click language switch flips the entire interface to full RTL Arabic — sidebar mirrors right, content flows right-to-left, and every label renders in medical Arabic via the Cairo typeface.*
 
 </div>
 
 ---
 
-## Features
+## Why MediCare Pro?
 
-### 🏥 Dashboard
-- Live clinic stats: total patients, today's appointments, revenue, low stock alerts
-- Today's appointment schedule at a glance
-- Quick action shortcuts to all core modules
-- Monthly summary: appointments, new patients, revenue
-- Pull-to-refresh for real-time updates
+Most hospital software is either too expensive, too slow, or too hard to use. MediCare Pro was built from scratch to feel as fast and modern as a consumer app while handling real clinical workflows. Every screen was designed for how staff actually work — doctors don't want to click five times to see a patient's vitals, and a pharmacy tech shouldn't need training to find low-stock alerts.
 
-### 👥 Patient Management
-- Register patients with full profile: name, MR number, DOB, gender, blood group, address
-- Search by name, MR number, or phone
-- Patient detail view with appointment history and prescriptions
-- Edit patient records and book appointments directly from profile
-- Auto-generated MR numbers
+The entire system runs as a native desktop application — no browser dependency, no tab clutter, no internet required for day-to-day operations. The backend syncs in the background.
 
-### 📅 Appointments
-- Book appointments with doctor, date, time slot, visit type (OPD / Follow-up / Emergency)
-- Today's view vs full schedule toggle
-- Status filter: All / Waiting / In Room / Scheduled / Completed
-- One-tap status updates: Waiting → In Room → Completed
-- Cancel appointments with confirmation
+---
 
-### 💊 Pharmacy Inventory
-- Full CRUD: add, edit, delete medicines
-- Category and unit classification (Tablet, Syrup, Injection, Capsule, etc.)
-- Track purchase price, sale price, quantity, and reorder level
-- Expiry date tracking with visual warnings
-- Low stock alerts (≤10 units) and out-of-stock indicators
-- Tabs: All | Low Stock | Expiring Soon
-- Real-time search
+## What's Inside
 
-### 🛒 Pharmacy POS (Point of Sale)
-- Medicine search and add to cart
-- Quantity controls with stock limit enforcement
-- Optional patient linking
-- Discount entry
-- Payment mode selection: Cash / Card / Bank Transfer / Credit
-- Sale summary with subtotal, discount, and total
+### 21 Fully Functional Screens
 
-### 📊 Reports & Analytics
-- Patient stats: total, new this month, new today
-- Appointment stats: today, this month, completed, cancelled
-- Revenue tracking: today, this month, total
-- Pharmacy stats: low stock count, expiring count
+| Module | Screens | Key Capability |
+|--------|---------|---------------|
+| **Command Center** | Dashboard | Live metrics, patient flow chart, critical alerts, OR schedule, bed census map |
+| **Emergency Dept** | ED Triage | ESI triage queue, waiting times, bed assignment |
+| **ICU / Critical Care** | ICU Monitor | Per-bed vitals, ventilator & vasopressor status, LOS tracking |
+| **Operating Theater** | OR Schedule | Procedure list, surgeon assignment, room status |
+| **Outpatient** | Clinic Queue | Live queue board, walk-in vs. appointment, doctor panel |
+| **Inpatient / Wards** | Ward View | Admitted patients, bed map, discharge planning |
+| **Patient Registry** | Patient List | Search, MR number, insurance, blood type, admission history |
+| **Electronic Records** | EMR | 6-tab chart: SOAP notes, vitals, labs, medications, problem list |
+| **Appointments** | Scheduler | Book, reschedule, status tracking |
+| **Laboratory** | Lab Orders | Order tests, results, critical value flagging |
+| **Radiology** | Worklist | Modality queue, report panel, STAT flagging |
+| **Blood Bank** | Inventory | Blood type stock, request management, donor directory |
+| **Dispensing** | Pharmacy POS | Prescription fill, stock check, dispense confirmation |
+| **Inventory** | Stock | Medicine stock levels, expiry tracking, reorder alerts |
+| **Procurement** | Purchase Orders | Supplier directory, PO creation, receive stock |
+| **Billing & Insurance** | Invoices | Invoice creation, insurance claims, patient share |
+| **Staff Management** | HR | Employee records, shift scheduling, credentials |
+| **Quality & JCI** | QA Dashboard | KPI tracking, incident reports, audit items, accreditation status |
+| **Business Intelligence** | Analytics | Revenue trends, case mix, department performance |
+| **Settings** | System Config | Language, hospital profile, security, integrations |
+
+---
+
+## Bilingual — Arabic & English
+
+Language is a first-class citizen, not an afterthought. Switching between Arabic and English:
+
+- Instantly flips the **entire UI** — sidebar, navigation, all labels, chart headings, status badges, and form fields
+- Activates a full **RTL layout** — sidebar moves to the right, content flows right-to-left, active indicators mirror correctly
+- Switches the **typeface** — Cairo (optimized for medical Arabic terminology) replaces Inter
+- Persists the choice **across sessions** via localStorage — the app remembers the user's language on next launch
+- Works on **every screen**, including the login branding panel, dashboard metrics, and all module pages
 
 ---
 
 ## Tech Stack
 
-### Mobile App
-| Technology | Purpose |
-|---|---|
-| React Native (Expo SDK 54) | Cross-platform mobile framework |
-| Expo EAS Build | Cloud APK / AAB build service |
-| React Navigation v7 | Stack + Bottom Tab navigation |
-| Zustand | Global state management (auth) |
-| Axios | HTTP client with JWT interceptors |
-| expo-secure-store | Secure token persistence |
+### Desktop App
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Electron | 28 | Native desktop shell (Windows / macOS / Linux) |
+| React | 18 | UI framework |
+| Vite | 5 | Build tool and dev server |
+| React Router DOM | v6 | Client-side routing |
+| Zustand | 4 | Global auth state |
+| Framer Motion | 11 | Page and component animations |
+| Recharts | 2 | All charts (area, bar, line, pie) |
+| Tailwind CSS | 3 | Utility-first styling |
+| i18next + react-i18next | — | Bilingual AR/EN with RTL support |
+| Lucide React | — | Icon library |
+| date-fns | — | Date formatting |
+| Axios | — | HTTP client with JWT interceptors |
 
 ### Backend API
+
 | Technology | Purpose |
 |---|---|
 | Node.js + Express | REST API server |
-| Prisma ORM | Database access layer |
+| Prisma ORM | Type-safe database access |
 | PostgreSQL | Relational database |
-| JWT + bcryptjs | Authentication & password hashing |
-| Railway | Cloud hosting + managed database |
-| Cloudinary | Document / image storage |
-| Helmet + CORS | API security |
+| JWT + bcryptjs | Authentication and password hashing |
+| Helmet + CORS | API security headers |
 
 ---
 
@@ -110,41 +130,82 @@
 
 ```
 medicare-plus/
-├── backend/                    # Express.js API
+│
+├── desktop/                        # Electron + React desktop app
+│   ├── electron/
+│   │   └── main.js                 # Electron main process
 │   ├── src/
-│   │   ├── modules/
-│   │   │   ├── auth/           # Login, register, staff management
-│   │   │   ├── patients/       # Patient CRUD
-│   │   │   ├── appointments/   # Appointment management
-│   │   │   ├── pharmacy/       # Inventory + sales
-│   │   │   ├── reports/        # Analytics & dashboard
-│   │   │   ├── lab/            # Lab reports
-│   │   │   ├── documents/      # File uploads
-│   │   │   └── reminders/      # Scheduled reminders
-│   │   ├── config/             # Database connection
-│   │   └── utils/              # Scheduler, helpers
-│   ├── prisma/
-│   │   └── schema.prisma       # Database schema
-│   ├── railway.toml            # Railway deployment config
+│   │   ├── api/                    # Axios instance + API service files
+│   │   │   ├── axios.js            # Auth interceptors, token management
+│   │   │   ├── patients.api.js
+│   │   │   ├── appointments.api.js
+│   │   │   ├── lab.api.js
+│   │   │   ├── pharmacy.api.js
+│   │   │   └── reports.api.js
+│   │   ├── components/
+│   │   │   ├── layout/
+│   │   │   │   ├── Layout.jsx      # Root layout with sidebar + topbar
+│   │   │   │   ├── Sidebar.jsx     # Collapsible nav with i18n labels
+│   │   │   │   └── TopBar.jsx      # Search, alerts, user menu, language toggle
+│   │   │   └── ui/                 # GlassCard, MetricCard, Badge, Button
+│   │   ├── i18n/
+│   │   │   ├── index.js            # i18next init, setLanguage(), RTL toggle
+│   │   │   └── locales/
+│   │   │       ├── en.json         # English translations
+│   │   │       └── ar.json         # Arabic translations (full RTL)
+│   │   ├── screens/                # One folder per module
+│   │   │   ├── Auth/LoginScreen.jsx
+│   │   │   ├── Dashboard/DashboardScreen.jsx
+│   │   │   ├── Emergency/EmergencyScreen.jsx
+│   │   │   ├── ICU/ICUScreen.jsx
+│   │   │   ├── Surgery/SurgeryScreen.jsx
+│   │   │   ├── Outpatient/OutpatientScreen.jsx
+│   │   │   ├── Ward/WardScreen.jsx
+│   │   │   ├── Patients/PatientsScreen.jsx
+│   │   │   ├── EMR/EMRScreen.jsx
+│   │   │   ├── Appointments/AppointmentsScreen.jsx
+│   │   │   ├── Lab/LabScreen.jsx
+│   │   │   ├── Radiology/RadiologyScreen.jsx
+│   │   │   ├── BloodBank/BloodBankScreen.jsx
+│   │   │   ├── Pharmacy/
+│   │   │   │   ├── PharmacyScreen.jsx
+│   │   │   │   ├── InventoryScreen.jsx
+│   │   │   │   └── ProcurementScreen.jsx
+│   │   │   ├── Billing/BillingScreen.jsx
+│   │   │   ├── Staff/StaffScreen.jsx
+│   │   │   ├── Quality/QualityScreen.jsx
+│   │   │   ├── Analytics/AnalyticsScreen.jsx
+│   │   │   └── Settings/SettingsScreen.jsx
+│   │   ├── store/
+│   │   │   └── auth.store.js       # Zustand auth store
+│   │   ├── App.jsx                 # Routes + auth guard + logout listener
+│   │   ├── main.jsx                # React root
+│   │   ├── index.css               # Global styles + RTL overrides
+│   │   └── constants.js
+│   ├── tailwind.config.js
+│   ├── vite.config.js
 │   └── package.json
 │
-└── mobile/                     # React Native app
-    ├── src/
-    │   ├── api/                # Axios API clients
-    │   ├── constants/          # Colors, enums, API URL
-    │   ├── navigation/         # AppNavigator (tabs + stacks)
-    │   ├── screens/
-    │   │   ├── Auth/           # Login, Register
-    │   │   ├── Dashboard/      # Home screen
-    │   │   ├── Patients/       # List, Detail, Add/Edit
-    │   │   ├── Appointments/   # List, Book
-    │   │   ├── Pharmacy/       # Inventory, POS, Add/Edit Medicine
-    │   │   └── Reports/        # Analytics
-    │   └── store/              # Zustand auth store
-    ├── assets/                 # App icon, splash screen
-    ├── app.json                # Expo config
-    ├── eas.json                # EAS Build config
-    └── package.json
+├── backend/                        # Express REST API
+│   ├── src/
+│   │   ├── modules/
+│   │   │   ├── auth/               # Login, staff management, JWT
+│   │   │   ├── patients/           # Patient CRUD + search
+│   │   │   ├── appointments/       # Scheduling and status
+│   │   │   ├── pharmacy/           # Inventory + sales
+│   │   │   ├── reports/            # Dashboard stats + analytics
+│   │   │   ├── lab/                # Lab orders and results
+│   │   │   └── documents/          # File uploads
+│   │   ├── config/
+│   │   │   └── database.js
+│   │   └── utils/
+│   ├── prisma/
+│   │   └── schema.prisma
+│   └── package.json
+│
+├── mobile/                         # React Native (Expo) companion app
+├── screenshots/                    # App screenshots
+└── README.md
 ```
 
 ---
@@ -152,110 +213,102 @@ medicare-plus/
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- PostgreSQL (local) or Railway account
-- Expo CLI + EAS CLI
-- Android device or emulator
+
+- **Node.js** 18 or later
+- **PostgreSQL** 14 or later (local or cloud)
+- **Git**
 
 ---
 
-### 1. Clone the repo
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/medicare-plus.git
+git clone https://github.com/umairhaider-dev/medicare-plus.git
 cd medicare-plus
 ```
 
 ---
 
-### 2. Backend Setup
+### 2. Set Up the Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file:
+Create a `.env` file in the `backend/` directory:
 
 ```env
-DATABASE_URL="postgresql://postgres:PASSWORD@localhost:5432/medicare_db"
-JWT_SECRET="your_jwt_secret_key"
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/medicare_db"
+JWT_SECRET="your-strong-secret-key-here"
 JWT_EXPIRES_IN="30d"
 PORT=5000
 NODE_ENV="development"
 ```
 
-Run database migrations and start the server:
+Initialize the database and start the API server:
 
 ```bash
-npx prisma db push       # Create tables
-npx prisma generate      # Generate Prisma client
-npm run dev              # Start with nodemon
+npx prisma db push        # Create all tables from schema
+npx prisma generate       # Generate the Prisma client
+npm run dev               # Start with nodemon (hot reload)
 ```
 
-API will be running at `http://localhost:5000`
+The API runs at `http://localhost:5000`
 Health check: `http://localhost:5000/health`
 
 ---
 
-### 3. Mobile Setup
+### 3. Set Up the Desktop App
 
 ```bash
-cd mobile
+cd desktop
 npm install
 ```
 
-Update `src/constants/index.js` with your local IP:
+The desktop app connects to the backend at `http://localhost:5000` by default. If your backend is running on a different host or port, update `src/api/axios.js`:
 
 ```js
-export const API_URL =
-  process.env.EXPO_PUBLIC_API_URL || 'http://YOUR_LOCAL_IP:5000/api';
+const instance = axios.create({
+  baseURL: 'http://YOUR_HOST:YOUR_PORT/api',
+})
 ```
 
-Start Expo:
+**Run in browser (dev mode, no Electron):**
 
 ```bash
-npx expo start
+npx vite
 ```
 
-Scan the QR code with **Expo Go** (Android/iOS).
+Open `http://localhost:5173` — everything works in the browser.
+
+**Run as native Electron desktop app:**
+
+```bash
+npm run dev
+```
+
+This starts Vite and Electron together. The window opens automatically.
+
+**Build a distributable:**
+
+```bash
+npm run build          # Build the web assets
+npm run electron:build # Package as .exe / .dmg / .AppImage
+```
 
 ---
 
-## Deployment
+### Demo Login
 
-### Backend → Railway
+Once the app is running, use the built-in demo credentials:
 
-1. Push code to GitHub
-2. Go to [railway.app](https://railway.app) → New Project → Deploy from GitHub
-3. Set **Root Directory** = `backend`
-4. Add a **PostgreSQL** database service
-5. Set environment variables (link `DATABASE_URL` from Postgres service)
-6. Generate a public domain under Settings → Networking
-7. Open Railway Shell and run: `npx prisma db push`
+| Field | Value |
+|-------|-------|
+| **Email** | `admin@dpmc.ae` |
+| **Password** | `admin123` |
 
-### Mobile → EAS Build (APK)
-
-```bash
-cd mobile
-
-# Install EAS CLI
-npm install -g eas-cli
-
-# Login to Expo account
-eas login
-
-# Configure project
-eas build:configure
-
-# Update eas.json with your Railway URL
-# "EXPO_PUBLIC_API_URL": "https://YOUR_APP.railway.app/api"
-
-# Build APK
-eas build --platform android --profile preview
-```
-
-Download the `.apk` from the EAS dashboard and install on any Android device.
+Or simply click the **"Click to auto-fill"** demo hint on the login screen.
 
 ---
 
@@ -263,80 +316,116 @@ Download the `.apk` from the EAS dashboard and install on any Android device.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/auth/register` | Register clinic + admin |
-| POST | `/api/auth/login` | Login |
-| GET | `/api/auth/doctors` | List doctors |
-| POST | `/api/auth/add-staff` | Add doctor/pharmacist/receptionist |
-| GET | `/api/patients` | List patients |
-| POST | `/api/patients` | Create patient |
-| GET | `/api/patients/:id` | Patient detail |
-| PUT | `/api/patients/:id` | Update patient |
-| GET | `/api/appointments` | List appointments |
-| POST | `/api/appointments` | Book appointment |
-| PATCH | `/api/appointments/:id/status` | Update status |
-| GET | `/api/pharmacy` | List medicines |
-| POST | `/api/pharmacy` | Add medicine |
-| PUT | `/api/pharmacy/:id` | Update medicine |
-| DELETE | `/api/pharmacy/:id` | Delete medicine |
-| POST | `/api/sales` | Create sale |
-| GET | `/api/reports/dashboard` | Dashboard stats |
+| `POST` | `/api/auth/login` | Authenticate, returns JWT |
+| `POST` | `/api/auth/register` | Register clinic and admin account |
+| `GET` | `/api/auth/doctors` | List all doctors |
+| `POST` | `/api/auth/add-staff` | Add staff member |
+| `GET` | `/api/patients` | Paginated patient list with search |
+| `POST` | `/api/patients` | Register new patient |
+| `GET` | `/api/patients/:id` | Full patient detail |
+| `PUT` | `/api/patients/:id` | Update patient record |
+| `GET` | `/api/appointments` | List appointments with filters |
+| `POST` | `/api/appointments` | Book appointment |
+| `PATCH` | `/api/appointments/:id/status` | Update appointment status |
+| `GET` | `/api/pharmacy` | Medicines list with stock levels |
+| `POST` | `/api/pharmacy` | Add medicine |
+| `PUT` | `/api/pharmacy/:id` | Update medicine / stock |
+| `DELETE` | `/api/pharmacy/:id` | Remove medicine |
+| `POST` | `/api/sales` | Record a dispensing sale |
+| `GET` | `/api/lab` | Lab orders list |
+| `POST` | `/api/lab` | Create lab order |
+| `GET` | `/api/reports/dashboard` | Dashboard KPI summary |
+| `GET` | `/api/reports/analytics` | Extended analytics data |
 
 ---
 
-## User Roles
+## User Roles & Access
 
-| Role | Access |
-|------|--------|
-| **ADMIN** | Full access — all modules, staff management |
-| **DOCTOR** | Patients, appointments, prescriptions |
-| **PHARMACIST** | Pharmacy inventory and POS sales |
-| **RECEPTIONIST** | Patients and appointments |
+| Role | Dashboard | Patients | EMR | Lab | Pharmacy | Billing | Staff | Settings |
+|------|:---------:|:--------:|:---:|:---:|:--------:|:-------:|:-----:|:--------:|
+| **Administrator** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Doctor** | ✓ | ✓ | ✓ | ✓ | View | — | — | — |
+| **Nurse** | ✓ | ✓ | ✓ | ✓ | — | — | — | — |
+| **Pharmacist** | ✓ | View | — | — | ✓ | — | — | — |
+| **Receptionist** | ✓ | ✓ | — | — | — | ✓ | — | — |
+
+---
+
+## Design Decisions
+
+**Dark clinical theme** — Hospitals operate 24/7. A dark UI reduces eye strain during night shifts and reduces screen glare in dimly lit wards.
+
+**Glass morphism cards** — Subtle depth cues separate data panels without the visual noise of heavy borders. All cards use semi-transparent backgrounds over the gradient base.
+
+**Animated counters** — Key metrics animate from zero on load, drawing attention to the numbers that matter and confirming the data has refreshed.
+
+**z-index architecture** — The TopBar notification and user dropdowns sit in a dedicated `position:relative; z-index:40` wrapper, so they always float above content panels regardless of `overflow:hidden` constraints on the main area.
+
+**Auth interceptor design** — The Axios 401 interceptor dispatches a custom DOM event (`auth:logout`) instead of calling `window.location.href` directly. This lets the `AuthLogoutListener` component inside the React Router context handle the redirect with `navigate()`, keeping the browser history clean and avoiding a full page reload.
 
 ---
 
 ## Environment Variables
 
-### Backend `.env`
+### Backend — `backend/.env`
 
-| Variable | Description |
-|----------|-------------|
-| `DATABASE_URL` | PostgreSQL connection string |
-| `JWT_SECRET` | Secret key for JWT signing |
-| `JWT_EXPIRES_IN` | Token expiry (e.g. `30d`) |
-| `PORT` | Server port (default: 5000) |
-| `NODE_ENV` | `development` or `production` |
-| `CLOUDINARY_CLOUD_NAME` | Cloudinary for document uploads |
-| `CLOUDINARY_API_KEY` | Cloudinary API key |
-| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `DATABASE_URL` | Yes | PostgreSQL connection string |
+| `JWT_SECRET` | Yes | Secret for signing JWT tokens |
+| `JWT_EXPIRES_IN` | No | Token lifetime, default `30d` |
+| `PORT` | No | API server port, default `5000` |
+| `NODE_ENV` | No | `development` or `production` |
 
-### Mobile `eas.json`
+---
 
-| Variable | Description |
-|----------|-------------|
-| `EXPO_PUBLIC_API_URL` | Production backend URL |
+## Compliance & Certifications
+
+MediCare Pro is designed with the following standards in mind:
+
+- **DHA** — Dubai Health Authority regulatory requirements
+- **JCI** — Joint Commission International accreditation workflows
+- **HIMSS Stage 7** — Electronic medical record maturity
+- **ISO 27001** — Information security management
+- **HIPAA** — Patient data privacy standards
+- **GDPR** — Data protection compliance
+
+---
+
+## Roadmap
+
+- [ ] Real-time multi-user sync via WebSockets
+- [ ] Biometric authentication for high-security stations
+- [ ] DICOM viewer integration for radiology
+- [ ] HL7 FHIR API for third-party integrations
+- [ ] Mobile companion app (React Native) for doctors on rounds
+- [ ] Offline-first mode with background sync queue
+- [ ] AI-assisted clinical decision support alerts
 
 ---
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m 'feat: add your feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Open a Pull Request
+2. Create your feature branch: `git checkout -b feature/your-feature-name`
+3. Write clean, documented code — no half-finished implementations
+4. Commit with a clear message: `git commit -m 'feat: add your feature'`
+5. Push and open a Pull Request against `main`
+
+Please open an issue first for major changes so we can discuss the approach before you invest time building it.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**, free to use, modify, and distribute with attribution.
 
 ---
 
 <div align="center">
 
-Built with by **Umair Haider**
+Built with care by **Umair Haider**
 
-*MediCare Plus — Digitizing Healthcare, One Clinic at a Time*
+*MediCare Pro — Putting the right information in front of the right clinician at the right time.*
 
 </div>

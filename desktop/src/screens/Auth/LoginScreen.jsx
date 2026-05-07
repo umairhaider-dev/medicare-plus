@@ -145,22 +145,21 @@ export default function LoginScreen() {
               MediCare <span className="gradient-text-gold">Pro</span>
             </div>
             <div className="text-sm font-500 tracking-widest uppercase mt-0.5" style={{ color: 'var(--text-muted)' }}>
-              Enterprise Edition
+              {t('login.enterprise')}
             </div>
           </div>
         </div>
 
         <h1 className="text-5xl font-900 leading-tight mb-4 tracking-tight">
-          <span className="gradient-text-hero">Next-Generation</span>
+          <span className="gradient-text-hero">{t('login.hero_line1')}</span>
           <br />
-          <span style={{ color: '#e2f0ff' }}>Hospital Command</span>
+          <span style={{ color: '#e2f0ff' }}>{t('login.hero_line2')}</span>
           <br />
-          <span style={{ color: '#e2f0ff' }}>& Control System</span>
+          <span style={{ color: '#e2f0ff' }}>{t('login.hero_line3')}</span>
         </h1>
 
         <p className="text-base mb-8 max-w-md leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          Powering Dubai's most advanced medical center with real-time clinical intelligence,
-          AI-driven decision support, and seamless departmental coordination.
+          {t('login.hero_desc')}
         </p>
 
         {/* ECG decoration */}
@@ -171,10 +170,10 @@ export default function LoginScreen() {
         {/* Stats */}
         <div className="flex items-center gap-8">
           {[
-            { value: '1,200+', label: 'Beds' },
-            { value: '85',     label: 'Departments' },
-            { value: '3,400+', label: 'Staff Members' },
-            { value: '24/7',   label: 'Operations' },
+            { value: '1,200+', label: t('login.stat_beds') },
+            { value: '85',     label: t('login.stat_departments') },
+            { value: '3,400+', label: t('login.stat_staff') },
+            { value: '24/7',   label: t('login.stat_operations') },
           ].map(s => (
             <div key={s.label}>
               <div className="text-2xl font-800 gradient-text-blue">{s.value}</div>
@@ -292,10 +291,10 @@ export default function LoginScreen() {
               <div className="flex items-center justify-between">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" className="w-3.5 h-3.5 rounded accent-sky-500" />
-                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>Remember me</span>
+                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{t('login.remember_me')}</span>
                 </label>
                 <button type="button" className="text-xs text-sky-400 hover:text-sky-300 font-500">
-                  Forgot password?
+                  {t('login.forgot_password')}
                 </button>
               </div>
 
@@ -342,7 +341,7 @@ export default function LoginScreen() {
 
           {/* Footer */}
           <p className="text-center text-[10px] mt-4" style={{ color: 'var(--text-muted)' }}>
-            © 2026 Dubai Premier Medical Center · Powered by MediCare Pro
+            {t('login.copyright')}
           </p>
         </div>
       </motion.div>
