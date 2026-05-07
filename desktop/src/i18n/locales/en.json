@@ -1,0 +1,268 @@
+{
+  "lang": "English",
+  "dir": "ltr",
+
+  "nav": {
+    "overview": "Overview",
+    "clinical": "Clinical",
+    "patients_group": "Patients",
+    "diagnostics": "Diagnostics",
+    "pharmacy_group": "Pharmacy",
+    "finance": "Finance",
+    "administration": "Administration",
+    "analytics_group": "Analytics",
+    "system": "System",
+
+    "dashboard": "Command Center",
+    "emergency": "Emergency Dept",
+    "icu": "ICU / Critical Care",
+    "surgery": "Operating Theater",
+    "outpatient": "Outpatient Clinic",
+    "ward": "Inpatient / Wards",
+    "patients": "Patient Registry",
+    "emr": "Electronic Records",
+    "appointments": "Appointments",
+    "lab": "Laboratory",
+    "radiology": "Radiology / Imaging",
+    "bloodbank": "Blood Bank",
+    "pharmacy": "Dispensing",
+    "inventory": "Inventory",
+    "procurement": "Procurement",
+    "billing": "Billing & Insurance",
+    "staff": "Staff Management",
+    "quality": "Quality & JCI",
+    "analytics": "Business Intelligence",
+    "settings": "Settings"
+  },
+
+  "common": {
+    "search": "Search...",
+    "add": "Add",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "close": "Close",
+    "export": "Export",
+    "print": "Print",
+    "filter": "Filter",
+    "refresh": "Refresh",
+    "loading": "Loading...",
+    "no_data": "No data found",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "today": "Today",
+    "all": "All",
+    "status": "Status",
+    "actions": "Actions",
+    "total": "Total",
+    "date": "Date",
+    "time": "Time",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "notes": "Notes",
+    "description": "Description",
+    "type": "Type",
+    "category": "Category",
+    "department": "Department",
+    "doctor": "Doctor",
+    "patient": "Patient",
+    "amount": "Amount",
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "new_order": "New Order",
+    "yes": "Yes",
+    "no": "No"
+  },
+
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "admitted": "Admitted",
+    "discharged": "Discharged",
+    "pending": "Pending",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "in_progress": "In Progress",
+    "scheduled": "Scheduled",
+    "on_duty": "On Duty",
+    "off_duty": "Off Duty",
+    "on_leave": "On Leave",
+    "critical": "Critical",
+    "stable": "Stable",
+    "urgent": "Urgent",
+    "routine": "Routine",
+    "stat": "STAT",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "waiting": "Waiting",
+    "available": "Available",
+    "occupied": "Occupied"
+  },
+
+  "dashboard": {
+    "title": "Command Center",
+    "subtitle": "Real-time hospital operations overview",
+    "total_beds": "Total Beds",
+    "occupied_beds": "Occupied Beds",
+    "available_beds": "Available Beds",
+    "total_patients": "Total Patients",
+    "daily_admissions": "Daily Admissions",
+    "daily_discharges": "Daily Discharges",
+    "er_waiting": "ER Waiting",
+    "surgeries_today": "Surgeries Today",
+    "revenue_today": "Today's Revenue",
+    "critical_alerts": "Critical Alerts",
+    "patient_flow": "Patient Flow",
+    "bed_map": "Bed Occupancy Map",
+    "dept_load": "Department Load",
+    "surgery_schedule": "Today's Surgery Schedule",
+    "revenue_trend": "Revenue Trend"
+  },
+
+  "patients": {
+    "title": "Patient Registry",
+    "subtitle": "Search, manage and view all registered patients",
+    "add_patient": "Add Patient",
+    "mr_number": "MR Number",
+    "patient_name": "Patient Name",
+    "age": "Age",
+    "gender": "Gender",
+    "blood_type": "Blood Type",
+    "nationality": "Nationality",
+    "insurance": "Insurance",
+    "last_visit": "Last Visit",
+    "total_registered": "Total Registered",
+    "active_patients": "Active Patients",
+    "admitted_today": "Admitted Today",
+    "discharged_today": "Discharged Today"
+  },
+
+  "appointments": {
+    "title": "Appointments",
+    "subtitle": "Schedule and manage patient appointments",
+    "new_appointment": "New Appointment",
+    "appointment_id": "Appointment ID",
+    "booked_at": "Booked At",
+    "duration": "Duration"
+  },
+
+  "emergency": {
+    "title": "Emergency Department",
+    "subtitle": "ESI triage · Active cases · Critical alerts",
+    "triage_level": "Triage Level",
+    "chief_complaint": "Chief Complaint",
+    "arrival_time": "Arrival Time",
+    "waiting_time": "Waiting Time",
+    "assign_bed": "Assign Bed",
+    "register_patient": "Register Patient"
+  },
+
+  "icu": {
+    "title": "ICU / Critical Care",
+    "subtitle": "Intensive care unit patient monitoring",
+    "bed_number": "Bed No.",
+    "ventilator": "Ventilator",
+    "vasopressors": "Vasopressors",
+    "diagnosis": "Diagnosis",
+    "icu_day": "ICU Day",
+    "attending": "Attending"
+  },
+
+  "lab": {
+    "title": "Laboratory",
+    "subtitle": "Test orders, results and critical values",
+    "new_order": "New Lab Order",
+    "order_id": "Order ID",
+    "test_name": "Test Name",
+    "ordered_at": "Ordered At",
+    "ordered_by": "Ordered By",
+    "priority": "Priority",
+    "result": "Result",
+    "pending_results": "Pending Results",
+    "critical_values": "Critical Values"
+  },
+
+  "pharmacy": {
+    "title": "Pharmacy",
+    "subtitle": "Dispensing, inventory and medication management",
+    "dispense": "Dispense",
+    "medicine_name": "Medicine Name",
+    "stock": "Stock",
+    "min_stock": "Min Stock",
+    "expiry": "Expiry",
+    "low_stock_alert": "Low Stock Alert",
+    "add_medicine": "Add Medicine"
+  },
+
+  "billing": {
+    "title": "Billing & Insurance",
+    "subtitle": "Invoices, insurance claims and payments",
+    "new_invoice": "New Invoice",
+    "invoice_id": "Invoice ID",
+    "insurance_provider": "Insurance Provider",
+    "insured_amount": "Insured",
+    "patient_share": "Patient Share",
+    "total_revenue": "Total Revenue",
+    "paid": "Paid",
+    "submitted": "Submitted"
+  },
+
+  "staff": {
+    "title": "Staff Management",
+    "subtitle": "Human resources, scheduling and credentials",
+    "add_staff": "Add Staff Member",
+    "employee_id": "Employee ID",
+    "role": "Role",
+    "shift": "Shift",
+    "joined": "Joined",
+    "total_staff": "Total Staff",
+    "on_duty": "On Duty",
+    "doctors": "Doctors",
+    "nurses": "Nurses"
+  },
+
+  "analytics": {
+    "title": "Business Intelligence",
+    "subtitle": "Performance metrics and hospital analytics"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "subtitle": "System configuration and preferences",
+    "language": "Language",
+    "language_desc": "Select display language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "security": "Security",
+    "appearance": "Appearance",
+    "select_language": "Select Language",
+    "english": "English",
+    "arabic": "العربية"
+  },
+
+  "topbar": {
+    "notifications": "Notifications",
+    "mark_all_read": "Mark all read",
+    "profile": "Profile",
+    "logout": "Sign Out",
+    "online": "Online",
+    "offline": "Offline",
+    "search_placeholder": "Search patients, orders..."
+  },
+
+  "login": {
+    "title": "Sign In",
+    "subtitle": "Dubai Premier Medical Center",
+    "email": "Email Address",
+    "password": "Password",
+    "sign_in": "Sign In",
+    "signing_in": "Signing in...",
+    "demo_hint": "Click to fill demo credentials",
+    "invalid_credentials": "Invalid credentials. Try admin@dpmc.ae / admin123"
+  }
+}

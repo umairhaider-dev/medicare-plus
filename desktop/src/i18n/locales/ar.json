@@ -1,0 +1,268 @@
+{
+  "lang": "العربية",
+  "dir": "rtl",
+
+  "nav": {
+    "overview": "نظرة عامة",
+    "clinical": "الأقسام السريرية",
+    "patients_group": "المرضى",
+    "diagnostics": "التشخيص",
+    "pharmacy_group": "الصيدلية",
+    "finance": "المالية",
+    "administration": "الإدارة",
+    "analytics_group": "التحليلات",
+    "system": "النظام",
+
+    "dashboard": "مركز القيادة",
+    "emergency": "قسم الطوارئ",
+    "icu": "العناية المركزة",
+    "surgery": "غرفة العمليات",
+    "outpatient": "العيادة الخارجية",
+    "ward": "الجناح الداخلي",
+    "patients": "سجل المرضى",
+    "emr": "السجلات الطبية",
+    "appointments": "المواعيد",
+    "lab": "المختبر",
+    "radiology": "الأشعة والتصوير",
+    "bloodbank": "بنك الدم",
+    "pharmacy": "الصرف",
+    "inventory": "المخزون",
+    "procurement": "المشتريات",
+    "billing": "الفوترة والتأمين",
+    "staff": "إدارة الموظفين",
+    "quality": "الجودة والاعتماد",
+    "analytics": "ذكاء الأعمال",
+    "settings": "الإعدادات"
+  },
+
+  "common": {
+    "search": "بحث...",
+    "add": "إضافة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "view": "عرض",
+    "close": "إغلاق",
+    "export": "تصدير",
+    "print": "طباعة",
+    "filter": "تصفية",
+    "refresh": "تحديث",
+    "loading": "جاري التحميل...",
+    "no_data": "لا توجد بيانات",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "submit": "إرسال",
+    "today": "اليوم",
+    "all": "الكل",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "total": "الإجمالي",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "notes": "ملاحظات",
+    "description": "الوصف",
+    "type": "النوع",
+    "category": "الفئة",
+    "department": "القسم",
+    "doctor": "الطبيب",
+    "patient": "المريض",
+    "amount": "المبلغ",
+    "quantity": "الكمية",
+    "unit": "الوحدة",
+    "new_order": "طلب جديد",
+    "yes": "نعم",
+    "no": "لا"
+  },
+
+  "status": {
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "admitted": "مقيم",
+    "discharged": "خارج",
+    "pending": "قيد الانتظار",
+    "completed": "مكتمل",
+    "cancelled": "ملغى",
+    "in_progress": "قيد التنفيذ",
+    "scheduled": "مجدول",
+    "on_duty": "في الخدمة",
+    "off_duty": "خارج الخدمة",
+    "on_leave": "في إجازة",
+    "critical": "حرج",
+    "stable": "مستقر",
+    "urgent": "عاجل",
+    "routine": "روتيني",
+    "stat": "فوري",
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "waiting": "في الانتظار",
+    "available": "متاح",
+    "occupied": "مشغول"
+  },
+
+  "dashboard": {
+    "title": "مركز القيادة",
+    "subtitle": "نظرة عامة على عمليات المستشفى في الوقت الفعلي",
+    "total_beds": "إجمالي الأسرّة",
+    "occupied_beds": "الأسرّة المشغولة",
+    "available_beds": "الأسرّة المتاحة",
+    "total_patients": "إجمالي المرضى",
+    "daily_admissions": "الدخول اليومي",
+    "daily_discharges": "الخروج اليومي",
+    "er_waiting": "انتظار الطوارئ",
+    "surgeries_today": "عمليات اليوم",
+    "revenue_today": "إيرادات اليوم",
+    "critical_alerts": "تنبيهات حرجة",
+    "patient_flow": "تدفق المرضى",
+    "bed_map": "خريطة الأسرّة",
+    "dept_load": "تحميل الأقسام",
+    "surgery_schedule": "جدول عمليات اليوم",
+    "revenue_trend": "اتجاه الإيرادات"
+  },
+
+  "patients": {
+    "title": "سجل المرضى",
+    "subtitle": "بحث وإدارة وعرض جميع المرضى المسجلين",
+    "add_patient": "إضافة مريض",
+    "mr_number": "رقم الملف",
+    "patient_name": "اسم المريض",
+    "age": "العمر",
+    "gender": "الجنس",
+    "blood_type": "فصيلة الدم",
+    "nationality": "الجنسية",
+    "insurance": "التأمين",
+    "last_visit": "آخر زيارة",
+    "total_registered": "إجمالي المسجلين",
+    "active_patients": "المرضى النشطون",
+    "admitted_today": "الدخول اليوم",
+    "discharged_today": "الخروج اليوم"
+  },
+
+  "appointments": {
+    "title": "المواعيد",
+    "subtitle": "جدولة وإدارة مواعيد المرضى",
+    "new_appointment": "موعد جديد",
+    "appointment_id": "رقم الموعد",
+    "booked_at": "وقت الحجز",
+    "duration": "المدة"
+  },
+
+  "emergency": {
+    "title": "قسم الطوارئ",
+    "subtitle": "الفرز · الحالات النشطة · التنبيهات الحرجة",
+    "triage_level": "مستوى الفرز",
+    "chief_complaint": "الشكوى الرئيسية",
+    "arrival_time": "وقت الوصول",
+    "waiting_time": "وقت الانتظار",
+    "assign_bed": "تخصيص سرير",
+    "register_patient": "تسجيل مريض"
+  },
+
+  "icu": {
+    "title": "العناية المركزة",
+    "subtitle": "مراقبة مرضى العناية المركزة",
+    "bed_number": "رقم السرير",
+    "ventilator": "جهاز تنفس",
+    "vasopressors": "موسّعات الأوعية",
+    "diagnosis": "التشخيص",
+    "icu_day": "يوم العناية",
+    "attending": "الطبيب المعالج"
+  },
+
+  "lab": {
+    "title": "المختبر",
+    "subtitle": "طلبات الفحص والنتائج والقيم الحرجة",
+    "new_order": "طلب فحص جديد",
+    "order_id": "رقم الطلب",
+    "test_name": "اسم الفحص",
+    "ordered_at": "وقت الطلب",
+    "ordered_by": "الطالب",
+    "priority": "الأولوية",
+    "result": "النتيجة",
+    "pending_results": "نتائج معلّقة",
+    "critical_values": "قيم حرجة"
+  },
+
+  "pharmacy": {
+    "title": "الصيدلية",
+    "subtitle": "الصرف والمخزون وإدارة الأدوية",
+    "dispense": "صرف",
+    "medicine_name": "اسم الدواء",
+    "stock": "المخزون",
+    "min_stock": "الحد الأدنى",
+    "expiry": "تاريخ الانتهاء",
+    "low_stock_alert": "تنبيه نقص المخزون",
+    "add_medicine": "إضافة دواء"
+  },
+
+  "billing": {
+    "title": "الفوترة والتأمين",
+    "subtitle": "الفواتير ومطالبات التأمين والمدفوعات",
+    "new_invoice": "فاتورة جديدة",
+    "invoice_id": "رقم الفاتورة",
+    "insurance_provider": "شركة التأمين",
+    "insured_amount": "مبلغ التأمين",
+    "patient_share": "حصة المريض",
+    "total_revenue": "إجمالي الإيرادات",
+    "paid": "مدفوع",
+    "submitted": "مُقدَّم"
+  },
+
+  "staff": {
+    "title": "إدارة الموظفين",
+    "subtitle": "الموارد البشرية والجداول والاعتمادات",
+    "add_staff": "إضافة موظف",
+    "employee_id": "رقم الموظف",
+    "role": "الدور الوظيفي",
+    "shift": "الوردية",
+    "joined": "تاريخ الانضمام",
+    "total_staff": "إجمالي الموظفين",
+    "on_duty": "في الخدمة",
+    "doctors": "الأطباء",
+    "nurses": "الممرضون"
+  },
+
+  "analytics": {
+    "title": "ذكاء الأعمال",
+    "subtitle": "مقاييس الأداء وتحليلات المستشفى"
+  },
+
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "إعدادات النظام والتفضيلات",
+    "language": "اللغة",
+    "language_desc": "اختر لغة العرض",
+    "theme": "المظهر",
+    "notifications": "الإشعارات",
+    "security": "الأمان",
+    "appearance": "المظهر العام",
+    "select_language": "اختر اللغة",
+    "english": "English",
+    "arabic": "العربية"
+  },
+
+  "topbar": {
+    "notifications": "الإشعارات",
+    "mark_all_read": "تحديد الكل كمقروء",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج",
+    "online": "متصل",
+    "offline": "غير متصل",
+    "search_placeholder": "ابحث عن مرضى وطلبات..."
+  },
+
+  "login": {
+    "title": "تسجيل الدخول",
+    "subtitle": "مركز دبي الطبي الرائد",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "sign_in": "دخول",
+    "signing_in": "جاري الدخول...",
+    "demo_hint": "انقر لملء بيانات العرض التجريبي",
+    "invalid_credentials": "بيانات غير صحيحة. جرّب admin@dpmc.ae / admin123"
+  }
+}

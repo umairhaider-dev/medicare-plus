@@ -1,22 +1,27 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Settings, Building2, Bell, Shield, Database, Wifi, User, ChevronRight, Save, Check } from 'lucide-react'
+import { Settings, Building2, Bell, Shield, Database, Wifi, User, ChevronRight, Save, Check, Languages } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { setLanguage } from '../../i18n'
 import GlassCard from '../../components/ui/GlassCard'
 import Button from '../../components/ui/Button'
 import { HOSPITAL_NAME } from '../../constants'
 
-const SECTIONS = [
-  { id:'hospital',    icon:Building2, label:'Hospital Profile' },
-  { id:'users',       icon:User,      label:'User Management' },
-  { id:'notifications',icon:Bell,     label:'Notifications' },
-  { id:'security',    icon:Shield,    label:'Security & Compliance' },
-  { id:'integrations',icon:Wifi,      label:'System Integrations' },
-  { id:'database',    icon:Database,  label:'Data & Backup' },
-]
-
 export default function SettingsScreen() {
+  const { t, i18n } = useTranslation()
   const [active, setActive] = useState('hospital')
   const [saved, setSaved] = useState(false)
+  const currentLang = i18n.language
+
+  const SECTIONS = [
+    { id:'language',    icon:Languages, label: t('settings.language') },
+    { id:'hospital',    icon:Building2, label:'Hospital Profile' },
+    { id:'users',       icon:User,      label:'User Management' },
+    { id:'notifications',icon:Bell,     label: t('settings.notifications') },
+    { id:'security',    icon:Shield,    label: t('settings.security') },
+    { id:'integrations',icon:Wifi,      label:'System Integrations' },
+    { id:'database',    icon:Database,  label:'Data & Backup' },
+  ]
 
   const handleSave = () => {
     setSaved(true)
@@ -31,12 +36,12 @@ export default function SettingsScreen() {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{background:'rgba(100,116,139,0.15)',border:'1px solid rgba(100,116,139,0.3)'}}>
               <Settings size={15} style={{color:'#94a3b8'}} />
             </div>
-            System Settings
+            {t('settings.title')}
           </h1>
-          <p className="page-subtitle">Hospital Configuration · Users · Integrations · Security</p>
+          <p className="page-subtitle">{t('settings.subtitle')}</p>
         </div>
         <Button icon={saved?Check:Save} variant={saved?'gold':'primary'} onClick={handleSave}>
-          {saved ? 'Saved!' : 'Save Changes'}
+          {saved ? '✓ Saved!' : t('common.save')}
         </Button>
       </div>
 
@@ -51,7 +56,7 @@ export default function SettingsScreen() {
                 onClick={()=>setActive(s.id)}
               >
                 <s.icon size={14} style={{color:active===s.id?'#38bdf8':'var(--text-muted)'}} />
-                <span className="flex-1 text-left">{s.label}</span>
+                <span className="flex-1 text-start">{s.label}</span>
                 <ChevronRight size={11} style={{color:'var(--text-muted)'}} />
               </button>
             ))}
@@ -60,6 +65,45 @@ export default function SettingsScreen() {
 
         {/* Content */}
         <GlassCard className="flex-1">
+          {active === 'language' && (
+            <motion.div initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} className="space-y-6">
+              <div>
+                <h2 className="text-base font-700 mb-1" style={{color:'var(--text-primary)'}}>{t('settings.language')}</h2>
+                <p className="text-xs" style={{color:'var(--text-muted)'}}>{t('settings.language_desc')}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { code:'en', label:'English', sublabel:'Left to right (LTR)', flag:'🇬🇧' },
+                  { code:'ar', label:'العربية', sublabel:'يمين إلى يسار (RTL)',  flag:'🇦🇪' },
+                ].map(lang => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className="p-5 rounded-xl text-center transition-all"
+                    style={{
+                      background: currentLang === lang.code ? 'rgba(14,165,233,0.12)' : 'rgba(10,22,48,0.5)',
+                      border: `2px solid ${currentLang === lang.code ? '#38bdf8' : 'rgba(56,189,248,0.1)'}`,
+                    }}
+                  >
+                    <div className="text-4xl mb-3">{lang.flag}</div>
+                    <div className="text-base font-700 mb-1" style={{color: currentLang === lang.code ? '#38bdf8' : 'var(--text-primary)'}}>{lang.label}</div>
+                    <div className="text-xs" style={{color:'var(--text-muted)'}}>{lang.sublabel}</div>
+                    {currentLang === lang.code && (
+                      <div className="mt-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-700" style={{background:'rgba(14,165,233,0.15)',color:'#38bdf8'}}>
+                        ✓ {t('status.active')}
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="p-4 rounded-xl" style={{background:'rgba(14,165,233,0.05)',border:'1px solid rgba(14,165,233,0.1)'}}>
+                <p className="text-xs" style={{color:'var(--text-secondary)'}}>
+                  🌐 Language changes apply instantly across the entire system. Arabic activates full RTL layout with the Cairo font optimized for medical Arabic terminology.
+                </p>
+              </div>
+            </motion.div>
+          )}
+
           {active === 'hospital' && (
             <motion.div initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} className="space-y-4">
               <h2 className="text-base font-700" style={{color:'var(--text-primary)'}}>Hospital Profile</h2>

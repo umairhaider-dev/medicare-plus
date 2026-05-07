@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import {
   LayoutDashboard, AlertTriangle, Activity, Scissors, Users2, BedDouble,
   UserCircle, ClipboardList, CalendarDays, FlaskConical, ScanLine, Droplets,
@@ -8,84 +9,85 @@ import {
 } from 'lucide-react'
 import { HOSPITAL_NAME, HOSPITAL_SHORT } from '../../constants'
 
-const NAV = [
-  {
-    group: 'Overview',
-    items: [
-      { to: '/dashboard', icon: LayoutDashboard, label: 'Command Center', badge: null },
-    ],
-  },
-  {
-    group: 'Clinical',
-    items: [
-      { to: '/emergency',    icon: AlertTriangle, label: 'Emergency Dept',    badge: '7', badgeVariant: 'red'    },
-      { to: '/icu',          icon: Activity,      label: 'ICU / Critical Care',badge: '12'                      },
-      { to: '/surgery',      icon: Scissors,      label: 'Operating Theater', badge: null                       },
-      { to: '/outpatient',   icon: Stethoscope,   label: 'Outpatient Clinic', badge: null                       },
-      { to: '/ward',         icon: BedDouble,     label: 'Inpatient / Wards', badge: null                       },
-    ],
-  },
-  {
-    group: 'Patients',
-    items: [
-      { to: '/patients',     icon: UserCircle,    label: 'Patient Registry',  badge: null },
-      { to: '/emr',          icon: ClipboardList, label: 'Electronic Records',badge: null },
-      { to: '/appointments', icon: CalendarDays,  label: 'Appointments',      badge: '24', badgeVariant: 'gold' },
-    ],
-  },
-  {
-    group: 'Diagnostics',
-    items: [
-      { to: '/lab',          icon: FlaskConical,  label: 'Laboratory',        badge: '5', badgeVariant: 'orange' },
-      { to: '/radiology',    icon: ScanLine,      label: 'Radiology / Imaging',badge: null },
-      { to: '/bloodbank',    icon: Droplets,      label: 'Blood Bank',        badge: null },
-    ],
-  },
-  {
-    group: 'Pharmacy',
-    items: [
-      { to: '/pharmacy',     icon: Pill,          label: 'Dispensing',        badge: null },
-      { to: '/pharmacy/inventory', icon: ShoppingCart, label: 'Inventory',   badge: null },
-      { to: '/pharmacy/procurement', icon: TruckIcon, label: 'Procurement',  badge: null },
-    ],
-  },
-  {
-    group: 'Finance',
-    items: [
-      { to: '/billing',      icon: Receipt,       label: 'Billing & Insurance',badge: null },
-    ],
-  },
-  {
-    group: 'Administration',
-    items: [
-      { to: '/staff',        icon: UserCog,       label: 'Staff Management',  badge: null },
-      { to: '/quality',      icon: ShieldCheck,   label: 'Quality & JCI',     badge: null },
-    ],
-  },
-  {
-    group: 'Analytics',
-    items: [
-      { to: '/analytics',    icon: BarChart3,     label: 'Business Intelligence', badge: null },
-    ],
-  },
-  {
-    group: 'System',
-    items: [
-      { to: '/settings',     icon: Settings,      label: 'Settings',          badge: null },
-    ],
-  },
-]
-
-const BADGE_COLORS = {
-  red:    { bg: 'rgba(239,68,68,0.2)',   color: '#f87171' },
-  orange: { bg: 'rgba(249,115,22,0.2)', color: '#fb923c' },
-  gold:   { bg: 'rgba(245,158,11,0.2)', color: '#fbbf24' },
-  blue:   { bg: 'rgba(14,165,233,0.2)', color: '#38bdf8' },
-  default:{ bg: 'rgba(56,189,248,0.12)', color: '#67a0c0' },
-}
-
 export default function Sidebar() {
   const location = useLocation()
+  const { t } = useTranslation()
+
+  const NAV = [
+    {
+      group: t('nav.overview'),
+      items: [
+        { to: '/dashboard', icon: LayoutDashboard, label: t('nav.dashboard'), badge: null },
+      ],
+    },
+    {
+      group: t('nav.clinical'),
+      items: [
+        { to: '/emergency',    icon: AlertTriangle, label: t('nav.emergency'),   badge: '7',  badgeVariant: 'red'    },
+        { to: '/icu',          icon: Activity,      label: t('nav.icu'),          badge: '12'                         },
+        { to: '/surgery',      icon: Scissors,      label: t('nav.surgery'),      badge: null                         },
+        { to: '/outpatient',   icon: Stethoscope,   label: t('nav.outpatient'),   badge: null                         },
+        { to: '/ward',         icon: BedDouble,     label: t('nav.ward'),         badge: null                         },
+      ],
+    },
+    {
+      group: t('nav.patients_group'),
+      items: [
+        { to: '/patients',     icon: UserCircle,    label: t('nav.patients'),     badge: null },
+        { to: '/emr',          icon: ClipboardList, label: t('nav.emr'),          badge: null },
+        { to: '/appointments', icon: CalendarDays,  label: t('nav.appointments'), badge: '24', badgeVariant: 'gold' },
+      ],
+    },
+    {
+      group: t('nav.diagnostics'),
+      items: [
+        { to: '/lab',          icon: FlaskConical,  label: t('nav.lab'),          badge: '5', badgeVariant: 'orange' },
+        { to: '/radiology',    icon: ScanLine,      label: t('nav.radiology'),    badge: null },
+        { to: '/bloodbank',    icon: Droplets,      label: t('nav.bloodbank'),    badge: null },
+      ],
+    },
+    {
+      group: t('nav.pharmacy_group'),
+      items: [
+        { to: '/pharmacy',              icon: Pill,          label: t('nav.pharmacy'),    badge: null },
+        { to: '/pharmacy/inventory',    icon: ShoppingCart,  label: t('nav.inventory'),   badge: null },
+        { to: '/pharmacy/procurement',  icon: TruckIcon,     label: t('nav.procurement'), badge: null },
+      ],
+    },
+    {
+      group: t('nav.finance'),
+      items: [
+        { to: '/billing',      icon: Receipt,       label: t('nav.billing'),      badge: null },
+      ],
+    },
+    {
+      group: t('nav.administration'),
+      items: [
+        { to: '/staff',        icon: UserCog,       label: t('nav.staff'),        badge: null },
+        { to: '/quality',      icon: ShieldCheck,   label: t('nav.quality'),      badge: null },
+      ],
+    },
+    {
+      group: t('nav.analytics_group'),
+      items: [
+        { to: '/analytics',    icon: BarChart3,     label: t('nav.analytics'),    badge: null },
+      ],
+    },
+    {
+      group: t('nav.system'),
+      items: [
+        { to: '/settings',     icon: Settings,      label: t('nav.settings'),     badge: null },
+      ],
+    },
+  ]
+
+  const BADGE_COLORS = {
+    red:    { bg: 'rgba(239,68,68,0.2)',   color: '#f87171' },
+    orange: { bg: 'rgba(249,115,22,0.2)', color: '#fb923c' },
+    gold:   { bg: 'rgba(245,158,11,0.2)', color: '#fbbf24' },
+    blue:   { bg: 'rgba(14,165,233,0.2)', color: '#38bdf8' },
+    default:{ bg: 'rgba(56,189,248,0.12)', color: '#67a0c0' },
+  }
 
   return (
     <div className="sidebar">
@@ -163,7 +165,7 @@ export default function Sidebar() {
             </div>
             <div className="text-[10px] truncate" style={{ color: 'var(--text-muted)' }}>v2.0 Enterprise</div>
           </div>
-          <div className="ml-auto">
+          <div className="ms-auto">
             <span className="pulse-dot" style={{ background: '#10b981', color: '#10b981' }} />
           </div>
         </div>

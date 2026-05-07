@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Cross, Lock, Mail, ArrowRight, Loader2 } from 'lucide-react'
+import { Eye, EyeOff, Cross, Lock, Mail, ArrowRight, Loader2, Languages } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { setLanguage } from '../../i18n'
 import useAuthStore from '../../store/auth.store'
 import { HOSPITAL_NAME, HOSPITAL_TAGLINE } from '../../constants'
 
@@ -99,9 +101,11 @@ function EcgLine() {
 export default function LoginScreen() {
   const { login, loading, error, clearError } = useAuthStore()
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPass, setShowPass] = useState(false)
+  const isArabic = i18n.language === 'ar'
 
   useEffect(() => { clearError?.() }, [])
 
@@ -111,8 +115,8 @@ export default function LoginScreen() {
     if (ok) navigate('/dashboard')
   }
 
-  // Demo quick-fill
   const fillDemo = () => { setEmail('admin@dpmc.ae'); setPassword('admin123') }
+  const toggleLang = () => setLanguage(isArabic ? 'en' : 'ar')
 
   return (
     <div className="relative flex h-screen overflow-hidden" style={{ background: 'var(--bg-base)' }}>
@@ -261,7 +265,7 @@ export default function LoginScreen() {
               {/* Password */}
               <div>
                 <label className="block text-xs font-600 mb-1.5" style={{ color: 'var(--text-secondary)' }}>
-                  Password
+                  {t('login.password')}
                 </label>
                 <div className="relative">
                   <Lock size={13} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-muted)' }} />
@@ -302,9 +306,9 @@ export default function LoginScreen() {
                 disabled={loading}
               >
                 {loading ? (
-                  <><Loader2 size={16} className="animate-spin" /> Authenticating...</>
+                  <><Loader2 size={16} className="animate-spin" /> {t('login.signing_in')}</>
                 ) : (
-                  <>Sign In to System <ArrowRight size={16} /></>
+                  <>{t('login.sign_in')} <ArrowRight size={16} /></>
                 )}
               </button>
             </form>
@@ -324,8 +328,20 @@ export default function LoginScreen() {
             </div>
           </div>
 
+          {/* Language toggle */}
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-600 transition-all"
+              style={{ background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.15)', color: 'var(--text-muted)' }}
+            >
+              <Languages size={12} />
+              {isArabic ? 'Switch to English' : 'التبديل إلى العربية'}
+            </button>
+          </div>
+
           {/* Footer */}
-          <p className="text-center text-[10px] mt-5" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-center text-[10px] mt-4" style={{ color: 'var(--text-muted)' }}>
             © 2026 Dubai Premier Medical Center · Powered by MediCare Pro
           </p>
         </div>

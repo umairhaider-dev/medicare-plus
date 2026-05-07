@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Bell, Search, User, LogOut, Wifi, WifiOff, Settings,
-  Minus, Maximize2, X, ChevronDown, AlertCircle, CheckCircle, Info,
+  Minus, Maximize2, X, ChevronDown, AlertCircle, CheckCircle, Info, Languages,
 } from 'lucide-react'
 import { format } from 'date-fns'
+import { useTranslation } from 'react-i18next'
+import { setLanguage } from '../../i18n'
 import useAuthStore from '../../store/auth.store'
 
 const MOCK_ALERTS = [
@@ -46,11 +48,15 @@ function WindowControls() {
 export default function TopBar({ onSearchFocus }) {
   const { user, logout } = useAuthStore()
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   const [now, setNow] = useState(new Date())
   const [alertsOpen, setAlertsOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [online, setOnline] = useState(navigator.onLine)
   const unread = MOCK_ALERTS.filter(a => !a.read).length
+  const isArabic = i18n.language === 'ar'
+
+  const toggleLanguage = () => setLanguage(isArabic ? 'en' : 'ar')
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 1000)
@@ -71,10 +77,10 @@ export default function TopBar({ onSearchFocus }) {
       {/* Search */}
       <div className="topbar-actions flex-1 max-w-xs">
         <div className="relative">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-muted)' }} />
+          <Search size={14} className="absolute start-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-muted)' }} />
           <input
-            className="input pl-9 h-8 text-xs"
-            placeholder="Search patients, MR, doctors..."
+            className="input ps-9 h-8 text-xs"
+            placeholder={t('topbar.search_placeholder')}
             onFocus={onSearchFocus}
           />
         </div>
@@ -102,6 +108,19 @@ export default function TopBar({ onSearchFocus }) {
           {online ? <Wifi size={11} /> : <WifiOff size={11} />}
           {online ? 'Live' : 'Offline'}
         </div>
+      </div>
+
+      {/* Language Toggle */}
+      <div className="topbar-actions">
+        <button
+          onClick={toggleLanguage}
+          title={isArabic ? 'Switch to English' : 'التبديل إلى العربية'}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-600 transition-all"
+          style={{ background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.15)', color: 'var(--text-secondary)' }}
+        >
+          <Languages size={13} />
+          {isArabic ? 'EN' : 'عر'}
+        </button>
       </div>
 
       {/* Notifications */}
@@ -132,7 +151,7 @@ export default function TopBar({ onSearchFocus }) {
               transition={{ duration: 0.2 }}
             >
               <div className="p-3 border-b flex items-center justify-between" style={{ borderColor: 'rgba(56,189,248,0.1)' }}>
-                <span className="text-sm font-600">Alerts & Notifications</span>
+                <span className="text-sm font-600">{t('topbar.notifications')}</span>
                 <span className="badge badge-red text-[10px]">{unread} unread</span>
               </div>
               <div className="divide-y" style={{ divideColor: 'rgba(56,189,248,0.05)' }}>
@@ -207,8 +226,8 @@ export default function TopBar({ onSearchFocus }) {
                 <p className="text-[11px] mt-0.5" style={{ color: 'var(--text-muted)' }}>{user?.email || 'admin@dpmc.ae'}</p>
               </div>
               {[
-                { icon: User, label: 'My Profile' },
-                { icon: Settings, label: 'Preferences' },
+                { icon: User, label: t('topbar.profile') },
+                { icon: Settings, label: t('nav.settings') },
               ].map(item => (
                 <button
                   key={item.label}
@@ -225,7 +244,7 @@ export default function TopBar({ onSearchFocus }) {
                   className="w-full flex items-center gap-2.5 px-3 py-2.5 text-xs font-500 transition-colors text-red-400 hover:bg-red-500/10"
                   onClick={handleLogout}
                 >
-                  <LogOut size={13} /> Sign Out
+                  <LogOut size={13} /> {t('topbar.logout')}
                 </button>
               </div>
             </motion.div>

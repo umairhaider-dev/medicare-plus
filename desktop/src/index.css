@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Arabic / RTL Font ─────────────────────────────────────────────────── */
+:lang(ar), [dir="rtl"] {
+  font-family: 'Cairo', system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+/* ─── RTL Layout Overrides ──────────────────────────────────────────────── */
+[dir="rtl"] .sidebar {
+  border-right: none;
+  border-left: 1px solid rgba(56,189,248,0.07);
+}
+[dir="rtl"] .sidebar::before {
+  background: radial-gradient(ellipse at 50% 0%, rgba(14,165,233,0.08) 0%, transparent 70%);
+}
+[dir="rtl"] .nav-item.active::after {
+  left: auto;
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+[dir="rtl"] .nav-item::before {
+  background: linear-gradient(270deg, rgba(14,165,233,0.08), transparent);
+}
+[dir="rtl"] .nav-item.active::before {
+  background: linear-gradient(270deg, rgba(14,165,233,0.08), transparent);
+}
+[dir="rtl"] .topbar {
+  background: linear-gradient(270deg, rgba(6,9,26,0.95), rgba(8,17,42,0.95));
+}
+[dir="rtl"] .page-header {
+  flex-direction: row;
+}
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td {
+  text-align: right;
+}
+[dir="rtl"] .severity-fill {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 /* ─── Root Design Tokens ───────────────────────────────────────────────── */
 :root {
   --bg-base:       #020814;
