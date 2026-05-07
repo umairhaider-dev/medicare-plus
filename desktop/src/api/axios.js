@@ -16,11 +16,13 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Only redirect to login on 401 from a real server response (not network errors)
-    if (error.response?.status === 401) {
+    // Never intercept auth endpoints — the login handler manages its own errors
+    const isAuthRoute = error.config?.url?.includes('/auth/')
+    if (error.response?.status === 401 && !isAuthRoute) {
       localStorage.removeItem('dpmc-token')
       localStorage.removeItem('dpmc-user')
-      window.location.href = '/login'
+      // Use React Router navigation instead of hard reload so store stays intact
+      window.dispatchEvent(new CustomEvent('auth:logout'))
     }
     return Promise.reject(error)
   }
